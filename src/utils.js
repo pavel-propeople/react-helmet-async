@@ -202,6 +202,7 @@ const reducePropsToState = propsList => ({
   styleTags: getTagsFromPropsList(TAG_NAMES.STYLE, [TAG_PROPERTIES.CSS_TEXT], propsList),
   title: getTitleFromPropsList(propsList),
   titleAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.TITLE, propsList),
+  headerAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.HEADER, propsList),
 });
 
 export const flattenArray = possibleArray =>

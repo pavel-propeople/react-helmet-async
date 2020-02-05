@@ -45,6 +45,7 @@ export class Helmet extends Component {
     style: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string,
     titleAttributes: PropTypes.object,
+    headerAttributes: PropTypes.object,
     titleTemplate: PropTypes.string,
   };
   /* eslint-enable react/prop-types, react/forbid-prop-types, react/require-default-props */
@@ -117,6 +118,12 @@ export class Helmet extends Component {
         return {
           ...newProps,
           htmlAttributes: { ...newChildProps },
+        };
+
+      case TAG_NAMES.HEADER:
+        return {
+          ...newProps,
+          headerAttributes: { ...newChildProps },
         };
       default:
         return {

@@ -69,6 +69,7 @@ export default class Provider extends Component {
         styleTags: [],
         title: '',
         titleAttributes: {},
+        headerAttributes: {},
       });
     }
   }

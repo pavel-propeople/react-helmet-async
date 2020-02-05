@@ -117,9 +117,11 @@ const commitTagChanges = (newState, cb) => {
     styleTags,
     title,
     titleAttributes,
+    headerAttributes
   } = newState;
   updateAttributes(TAG_NAMES.BODY, bodyAttributes);
   updateAttributes(TAG_NAMES.HTML, htmlAttributes);
+  updateAttributes(TAG_NAMES.HEADER, headerAttributes);
 
   updateTitle(title, titleAttributes);
 

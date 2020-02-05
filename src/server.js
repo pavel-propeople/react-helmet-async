@@ -119,6 +119,7 @@ const getMethodsForTag = (type, tags, encode) => {
       };
     case ATTRIBUTE_NAMES.BODY:
     case ATTRIBUTE_NAMES.HTML:
+    case ATTRIBUTE_NAMES.HEADER:
       return {
         toComponent: () => convertElementAttributesToReactProps(tags),
         toString: () => generateElementAttributesAsString(tags),
@@ -143,6 +144,7 @@ const mapStateOnServer = ({
   styleTags,
   title = '',
   titleAttributes,
+  headerAttributes,
 }) => ({
   base: getMethodsForTag(TAG_NAMES.BASE, baseTag, encode),
   bodyAttributes: getMethodsForTag(ATTRIBUTE_NAMES.BODY, bodyAttributes, encode),
@@ -153,6 +155,7 @@ const mapStateOnServer = ({
   script: getMethodsForTag(TAG_NAMES.SCRIPT, scriptTags, encode),
   style: getMethodsForTag(TAG_NAMES.STYLE, styleTags, encode),
   title: getMethodsForTag(TAG_NAMES.TITLE, { title, titleAttributes }, encode),
+  headerAttributes: getMethodsForTag(ATTRIBUTE_NAMES.HEADER, headerAttributes, encode),
 });
 
 export default mapStateOnServer;
