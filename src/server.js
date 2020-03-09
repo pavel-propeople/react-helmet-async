@@ -120,6 +120,7 @@ const getMethodsForTag = (type, tags, encode) => {
     case ATTRIBUTE_NAMES.BODY:
     case ATTRIBUTE_NAMES.HTML:
     case ATTRIBUTE_NAMES.HEADER:
+    case ATTRIBUTE_NAMES.BREADCRUMB:
       return {
         toComponent: () => convertElementAttributesToReactProps(tags),
         toString: () => generateElementAttributesAsString(tags),
@@ -145,6 +146,7 @@ const mapStateOnServer = ({
   title = '',
   titleAttributes,
   headerAttributes,
+  breadcrumbAttributes,
 }) => ({
   base: getMethodsForTag(TAG_NAMES.BASE, baseTag, encode),
   bodyAttributes: getMethodsForTag(ATTRIBUTE_NAMES.BODY, bodyAttributes, encode),
@@ -156,6 +158,7 @@ const mapStateOnServer = ({
   style: getMethodsForTag(TAG_NAMES.STYLE, styleTags, encode),
   title: getMethodsForTag(TAG_NAMES.TITLE, { title, titleAttributes }, encode),
   headerAttributes: getMethodsForTag(ATTRIBUTE_NAMES.HEADER, headerAttributes, encode),
+  breadcrumbAttributes: getMethodsForTag(ATTRIBUTE_NAMES.BREADCRUMB, breadcrumbAttributes, encode),
 });
 
 export default mapStateOnServer;

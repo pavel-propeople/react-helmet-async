@@ -203,6 +203,7 @@ const reducePropsToState = propsList => ({
   title: getTitleFromPropsList(propsList),
   titleAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.TITLE, propsList),
   headerAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.HEADER, propsList),
+  breadcrumbAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.BREADCRUMB, propsList),
 });
 
 export const flattenArray = possibleArray =>

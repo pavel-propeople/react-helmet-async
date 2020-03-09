@@ -70,6 +70,7 @@ export default class Provider extends Component {
         title: '',
         titleAttributes: {},
         headerAttributes: {},
+        breadcrumbAttributes: {},
       });
     }
   }

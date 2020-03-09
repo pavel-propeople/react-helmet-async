@@ -46,6 +46,7 @@ export class Helmet extends Component {
     title: PropTypes.string,
     titleAttributes: PropTypes.object,
     headerAttributes: PropTypes.object,
+    breadcrumbAttributes: PropTypes.object,
     titleTemplate: PropTypes.string,
   };
   /* eslint-enable react/prop-types, react/forbid-prop-types, react/require-default-props */
@@ -124,6 +125,11 @@ export class Helmet extends Component {
         return {
           ...newProps,
           headerAttributes: { ...newChildProps },
+        };
+      case TAG_NAMES.BREADCRUMB:
+        return {
+          ...newProps,
+          breadcrumbAttributes: { ...newChildProps },
         };
       default:
         return {

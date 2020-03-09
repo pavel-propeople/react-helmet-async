@@ -15,7 +15,8 @@ export const ATTRIBUTE_NAMES = {
   BODY: 'bodyAttributes',
   HTML: 'htmlAttributes',
   TITLE: 'titleAttributes',
-  HEADER: 'headerAttributes'
+  HEADER: 'headerAttributes',
+  BREADCRUMB: 'breadcrumbAttributes',
 };
 
 export const TAG_NAMES = {
@@ -31,6 +32,7 @@ export const TAG_NAMES = {
   TITLE: 'title',
   FRAGMENT: 'Symbol(react.fragment)',
   HEADER: 'header',
+  BREADCRUMB: 'breadcrumb',
 };
 
 export const VALID_TAG_NAMES = Object.keys(TAG_NAMES).map(name => TAG_NAMES[name]);
