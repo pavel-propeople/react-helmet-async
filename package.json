@@ -1,6 +1,6 @@
 {
-  "name": "rnd-helmet",
-  "version": "1.0.6",
+  "name": "react-helmet-async",
+  "version": "1.0.7",
   "description": "Thread-safe Helmet for React 16+ and friends",
   "main": "lib/index.js",
   "umd:main": "lib/index.umd.js",
@@ -16,41 +16,43 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.3.4",
+    "@babel/runtime": "^7.11.2",
     "invariant": "^2.2.4",
     "prop-types": "^15.7.2",
-    "react-fast-compare": "^2.0.4",
+    "react-fast-compare": "^3.2.0",
     "shallowequal": "^1.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.6.2",
-    "@babel/core": "7.6.2",
-    "@babel/plugin-proposal-class-properties": "7.5.5",
-    "babel-eslint": "10.0.1",
-    "babel-preset-kyt-react": "1.0.0-alpha.8d1d2ff9",
-    "enzyme": "3.10.0",
-    "enzyme-adapter-react-16": "1.15.1",
-    "enzyme-to-json": "3.4.2",
-    "eslint": "5.16.0",
-    "eslint-config-airbnb": "17.1.0",
-    "eslint-config-kyt": "1.0.0-alpha.8d1d2ff9",
-    "eslint-config-prettier": "4.2.0",
-    "eslint-plugin-import": "2.17.2",
-    "eslint-plugin-jest": "22.3.0",
-    "eslint-plugin-json": "1.4.0",
-    "eslint-plugin-jsx-a11y": "6.2.1",
-    "eslint-plugin-kyt": "1.0.0-alpha.8d1d2ff9",
-    "eslint-plugin-prettier": "3.1.0",
-    "eslint-plugin-react": "7.13.0",
-    "eslint-plugin-react-hooks": "1.6.0",
-    "jest": "24.5.0",
-    "jsdom": "15.2.0",
-    "microbundle": "^0.11.0",
-    "prettier": "1.17.1",
+    "@babel/cli": "7.11.6",
+    "@babel/core": "7.11.6",
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "babel-eslint": "10.1.0",
+    "babel-preset-kyt-react": "1.0.5",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.4",
+    "enzyme-to-json": "3.5.0",
+    "eslint": "7.9.0",
+    "eslint-config-airbnb": "18.2.0",
+    "eslint-config-kyt": "1.0.8",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "24.0.1",
+    "eslint-plugin-jest-formatting": "2.0.0",
+    "eslint-plugin-json": "2.1.2",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.20.6",
+    "eslint-plugin-react-hooks": "4.1.2",
+    "husky": "4.3.0",
+    "jest": "26.4.2",
+    "jsdom": "16.4.0",
+    "microbundle": "0.12.3",
+    "prettier": "2.1.1",
     "raf": "3.4.1",
-    "react": "16.8.4",
-    "react-dom": "16.8.4",
-    "rimraf": "^2.6.3"
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "rimraf": "3.0.2"
   },
   "peerDependencies": {
     "react": "^16.6.0",
@@ -58,27 +60,17 @@
   },
   "scripts": {
     "clean": "rimraf lib",
-    "lint": "eslint .",
+    "lint": "eslint . --report-unused-disable-directives",
     "lint-fix": "eslint . --fix",
-    "test": "KYT_ENV_TYPE=test jest --no-cache",
-    "test-watch": "npm run test -- --watch",
-    "test-update": "npm run test -- -u",
-    "compile": "npm run clean && KYT_ENV_TYPE=client NODE_ENV=production microbundle --jsx React.createElement",
-    "prepare": "npm run compile"
+    "test": "NODE_ENV=test BABEL_ENV=test jest",
+    "test-watch": "yarn test --watch",
+    "test-update": "yarn test -u",
+    "compile": "yarn run clean && KYT_ENV_TYPE=client NODE_ENV=production microbundle --jsx React.createElement",
+    "prepare": "yarn compile"
   },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
-    ],
-    "testEnvironment": "node",
-    "testMatch": [
-      "**/__tests__/**/*.test.js"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/src/",
-      "/lib/",
-      "/es/"
-    ]
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
