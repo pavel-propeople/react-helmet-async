@@ -2,8 +2,7 @@ import { HELMET_ATTRIBUTE, TAG_NAMES, TAG_PROPERTIES } from './constants';
 import { flattenArray } from './utils';
 
 const updateTags = (type, tags) => {
-  const headElement = document.head || document.querySelector(TAG_NAMES.HEAD);
-  const tagNodes = headElement.querySelectorAll(`${type}[${HELMET_ATTRIBUTE}]`);
+  const tagNodes = document.querySelectorAll(`${type}[${HELMET_ATTRIBUTE}]`);
   const oldTags = [].slice.call(tagNodes);
   const newTags = [];
   let indexToDelete;
@@ -47,7 +46,7 @@ const updateTags = (type, tags) => {
   }
 
   oldTags.forEach(tag => tag.parentNode.removeChild(tag));
-  newTags.forEach(tag => headElement.appendChild(tag));
+  newTags.forEach(tag => tag.parentNode.appendChild(tag));
 
   return {
     oldTags,
