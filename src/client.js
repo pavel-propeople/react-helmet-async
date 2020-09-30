@@ -46,7 +46,15 @@ const updateTags = (type, tags) => {
   }
 
   oldTags.forEach(tag => tag.parentNode.removeChild(tag));
-  newTags.forEach(tag => tag.parentNode.appendChild(tag));
+  newTags.forEach(tag => {
+    if (tag.parentNode) {
+      tag.parentNode.appendChild(tag);
+    }
+    else {
+      const headElement = document.head || document.querySelector(TAG_NAMES.HEAD);
+      headElement.appendChild(tag);
+    }
+  });
 
   return {
     oldTags,
